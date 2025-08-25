@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>PratikProtfolio| Software Engineer</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        dark: '#121212',
+                        'dark-secondary': '#1a1a1a',
+                        'dark-card': '#242424',
+                        'dark-text': '#e0e0e0',
+                        light: '#ffffff',
+                        'light-secondary': '#f7fafc',
+                        'light-card': '#ffffff',
+                        'light-text': '#2d3748',
+                        accent: '#3b82f6',
+                        'accent-hover': '#2563eb',
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script>
+      // Prevents FOUC (Flash of Unstyled Content) for dark mode
+      if (localStorage.getItem('theme') === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+        document.documentElement.classList.add('dark')
+      } else {
+        document.documentElement.classList.remove('dark')
+      }
+    </script>
+    <style>
+        /* Simple scrollbar styling */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #f1f1f1;
+            border-radius: 10px;
+        }
+        .dark ::-webkit-scrollbar-track {
+            background: #2d3748;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #888;
+            border-radius: 10px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #555;
+        }
+        
+        /* Animated Gradient Background */
+        @keyframes gradient-move {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            background: linear-gradient(-45deg, 
+                rgba(59, 130, 246, 0.15), 
+                rgba(239, 68, 68, 0.1), 
+                rgba(16, 185, 129, 0.1), 
+                rgba(168, 85, 247, 0.15)
+            );
+            background-size: 400% 400%;
+            animation: gradient-move 20s ease infinite;
+            z-index: 0;
+            opacity: 0.6;
+            transition: opacity 0.5s;
+        }
+        .dark body::before {
+             background: linear-gradient(-45deg, 
+                rgba(59, 130, 246, 0.2), 
+                rgba(239, 68, 68, 0.15), 
+                rgba(16, 185, 129, 0.15), 
+                rgba(168, 85, 247, 0.2)
+            );
+            opacity: 0.8;
+        }
+        #root {
+            position: relative;
+            z-index: 1;
+        }
+    </style>
+<script type="importmap">
+{
+  "imports": {
+    "react": "https://esm.sh/react@^19.1.1",
+    "react-dom/": "https://esm.sh/react-dom@^19.1.1/",
+    "react/": "https://esm.sh/react@^19.1.1/",
+    "framer-motion": "https://esm.sh/framer-motion@^12.23.12"
+  }
+}
+</script>
+<link rel="stylesheet" href="/index.css">
+</head>
+<body class="bg-light-secondary dark:bg-dark-secondary transition-colors duration-300 font-sans antialiased">
+    <div id="root"></div>
+    <script type="module" src="/index.jsx"></script>
+<script type="module" src="/index.tsx"></script>
+</body>
+</html>
